@@ -1,0 +1,968 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f7f5ef;
+    color: #222;
+    line-height: 1.6;
+}
+
+/* NAVIGATION */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 1000;
+}
+
+.logo {
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+nav a:hover {
+    color: #f4b400;
+}
+
+
+/* HERO */
+
+.hero {
+    min-height: 100vh;
+
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.45),
+            rgba(0, 0, 0, 0.45)
+        ),
+        url("../images/hero.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    align-items: center;
+    padding: 100px 7%;
+}
+
+.hero-content {
+    max-width: 700px;
+    color: white;
+}
+
+.hero h1 {
+    font-size: clamp(45px, 7vw, 80px);
+    line-height: 1.1;
+    margin-bottom: 25px;
+}
+
+.hero p {
+    font-size: 20px;
+    margin-bottom: 35px;
+}
+
+
+/* BUTTONS */
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+    padding: 14px 25px;
+    background: #f4b400;
+    color: #111;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn.secondary {
+    background: white;
+}
+
+
+/* DESTINATIONS */
+
+.destinations {
+    padding: 90px 7%;
+}
+
+.destinations h2 {
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.section-intro {
+    text-align: center;
+    margin-bottom: 45px;
+    color: #666;
+}
+
+.destination-grid {
+    display: grid;
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 25px;
+}
+
+.destination-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.1);
+
+    transition: transform 0.3s ease;
+}
+
+.destination-card:hover {
+    transform: translateY(-8px);
+}
+
+.destination-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.destination-card h3,
+.destination-card p,
+.destination-card a {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.destination-card h3 {
+    margin-top: 20px;
+    font-size: 23px;
+}
+
+.destination-card p {
+    margin-top: 10px;
+    color: #666;
+}
+
+.destination-card a {
+    display: inline-block;
+    margin-top: 15px;
+    margin-bottom: 20px;
+
+    color: #d28b00;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+/* CALL TO ACTION */
+
+.cta {
+    text-align: center;
+    padding: 90px 20px;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.65),
+            rgba(0, 0, 0, 0.65)
+        ),
+        url("../images/hero.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    color: white;
+}
+
+.cta h2 {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.cta p {
+    margin-bottom: 30px;
+}
+
+
+/* FOOTER */
+
+footer {
+    background: #111;
+    color: white;
+    text-align: center;
+    padding: 25px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 900px) {
+
+    .navbar {
+        padding: 18px 5%;
+    }
+
+    nav {
+        gap: 12px;
+    }
+
+    .destination-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .navbar {
+        position: absolute;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero {
+        padding: 140px 5% 80px;
+    }
+
+    .hero h1 {
+        font-size: 45px;
+    }
+
+    .hero p {
+        font-size: 17px;
+    }
+
+    .destinations {
+        padding: 60px 5%;
+    }
+
+    .destinations h2 {
+        font-size: 32px;
+    }
+
+    .destination-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+
+    .menu-toggle {
+        display: block;
+    }
+
+    nav {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        padding-top: 15px;
+    }
+
+    nav.active {
+        display: flex;
+    }
+}
+.search-box {
+    max-width: 500px;
+    margin: 0 auto 40px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 15px 20px;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    font-size: 16px;
+    outline: none;
+}
+
+.search-box input:focus {
+    border-color: #f4b400;
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kenya Tours | Explore Kenya</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="logo">
+        Explore Kenya
+    </div>
+
+    <button class="menu-toggle" id="menuToggle">
+        ☰
+    </button>
+
+    <nav id="navMenu">
+        <a href="index.html">Home</a>
+        <a href="destinations.html">Destinations</a>
+        <a href="tours.html">Tours</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+</header>
+
+
+<main>
+
+    <!-- PAGE HERO -->
+
+    <section class="page-hero">
+
+        <div>
+
+            <h1>Explore Our Tours</h1>
+
+            <p>
+                Discover unforgettable experiences
+                across Kenya.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- TOURS -->
+
+    <section class="tours">
+
+        <h2>Popular Tours</h2>
+
+        <p class="section-intro">
+            Choose your next adventure.
+        </p>
+
+
+        <div class="tour-grid">
+
+
+            <!-- TOUR 1 -->
+
+            <div class="tour-card">
+
+                <img
+                    src="images/masai-mara.jpg"
+                    alt="Maasai Mara Safari"
+                >
+
+                <div class="tour-content">
+
+                    <span class="tour-location">
+                        📍 Maasai Mara
+                    </span>
+
+                    <h3>
+                        3-Day Maasai Mara Safari
+                    </h3>
+
+                    <p>
+                        Experience Kenya's incredible
+                        wildlife on an unforgettable safari.
+                    </p>
+
+                    <div class="tour-info">
+
+                        <span>
+                            ⏱️ 3 Days
+                        </span>
+
+                        <strong>
+                            KES 35,000
+                        </strong>
+
+                    </div>
+
+                    <a
+                        href="contact.html"
+                        class="btn"
+                    >
+                        Book This Tour
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- TOUR 2 -->
+
+            <div class="tour-card">
+
+                <img
+                    src="images/diani.jpg"
+                    alt="Diani Beach"
+                >
+
+                <div class="tour-content">
+
+                    <span class="tour-location">
+                        📍 Diani Beach
+                    </span>
+
+                    <h3>
+                        4-Day Diani Beach Escape
+                    </h3>
+
+                    <p>
+                        Relax on beautiful beaches and
+                        experience the Kenyan coast.
+                    </p>
+
+                    <div class="tour-info">
+
+                        <span>
+                            ⏱️ 4 Days
+                        </span>
+
+                        <strong>
+                            KES 40,000
+                        </strong>
+
+                    </div>
+
+                    <a
+                        href="contact.html"
+                        class="btn"
+                    >
+                        Book This Tour
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- TOUR 3 -->
+
+            <div class="tour-card">
+
+                <img
+                    src="images/mount-kenya.jpg"
+                    alt="Mount Kenya"
+                >
+
+                <div class="tour-content">
+
+                    <span class="tour-location">
+                        📍 Mount Kenya
+                    </span>
+
+                    <h3>
+                        5-Day Mount Kenya Adventure
+                    </h3>
+
+                    <p>
+                        Explore breathtaking mountain
+                        landscapes and hiking trails.
+                    </p>
+
+                    <div class="tour-info">
+
+                        <span>
+                            ⏱️ 5 Days
+                        </span>
+
+                        <strong>
+                            KES 55,000
+                        </strong>
+
+                    </div>
+
+                    <a
+                        href="contact.html"
+                        class="btn"
+                    >
+                        Book This Tour
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- TOUR 4 -->
+
+            <div class="tour-card">
+
+                <img
+                    src="images/nairobi.jpg"
+                    alt="Nairobi National Park"
+                >
+
+                <div class="tour-content">
+
+                    <span class="tour-location">
+                        📍 Nairobi
+                    </span>
+
+                    <h3>
+                        Nairobi Wildlife Experience
+                    </h3>
+
+                    <p>
+                        See amazing wildlife just minutes
+                        from Kenya's capital.
+                    </p>
+
+                    <div class="tour-info">
+
+                        <span>
+                            ⏱️ 1 Day
+                        </span>
+
+                        <strong>
+                            KES 12,000
+                        </strong>
+
+                    </div>
+
+                    <a
+                        href="contact.html"
+                        class="btn"
+                    >
+                        Book This Tour
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <p>
+        © 2026 Explore Kenya. All rights reserved.
+    </p>
+
+</footer>
+
+
+<script src="js/script.js"></script>
+
+</body>
+
+</html>
+/* BOOKING */
+
+.booking-section {
+    padding: 80px 20px;
+}
+
+.booking-container {
+    max-width: 700px;
+    margin: auto;
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.booking-container h2 {
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+.booking-container > p {
+    color: #666;
+    margin-bottom: 30px;
+}
+
+#bookingForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#bookingForm label {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+#bookingForm input,
+#bookingForm select,
+#bookingForm textarea {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    font-family: inherit;
+}
+
+#bookingForm input:focus,
+#bookingForm select:focus,
+#bookingForm textarea:focus {
+    outline: none;
+    border-color: #f4b400;
+}
+
+#bookingForm button {
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.form-message {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+/* ADMIN DASHBOARD */
+
+.admin-header {
+    background: #111;
+    color: white;
+    padding: 30px 7%;
+}
+
+.admin-header h1 {
+    margin-bottom: 5px;
+}
+
+.admin-header p {
+    color: #ccc;
+}
+
+
+.admin-container {
+    padding: 50px 7%;
+}
+
+
+.admin-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 30px;
+}
+
+
+.admin-top h2 {
+    font-size: 35px;
+}
+
+
+.admin-top p {
+    color: #666;
+}
+
+
+/* BOOKING STAT */
+
+.booking-stat {
+    width: 250px;
+
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.1);
+
+    margin-bottom: 30px;
+}
+
+
+.booking-stat span {
+    display: block;
+
+    color: #666;
+
+    margin-bottom: 10px;
+}
+
+
+.booking-stat strong {
+    font-size: 40px;
+
+    color: #c48700;
+}
+
+
+/* TABLE */
+
+.table-container {
+    width: 100%;
+
+    overflow-x: auto;
+
+    background: white;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+
+table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    min-width: 900px;
+}
+
+
+th,
+td {
+    padding: 15px;
+
+    text-align: left;
+
+    border-bottom: 1px solid #eee;
+}
+
+
+th {
+    background: #f4b400;
+
+    color: #111;
+}
+
+
+tr:hover {
+    background: #fafafa;
+}
+
+
+@media (max-width: 600px) {
+
+    .admin-container {
+        padding: 40px 5%;
+    }
+
+    .admin-top {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 20px;
+    }
+
+}
+
+/* ADMIN LOGIN */
+
+.login-container {
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 20px;
+}
+
+
+.login-box {
+    width: 100%;
+    max-width: 450px;
+
+    background: white;
+
+    padding: 40px;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+
+.login-box h1 {
+    margin-bottom: 5px;
+}
+
+
+.login-box h2 {
+    margin-bottom: 30px;
+}
+
+
+#loginForm {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+
+#loginForm label {
+    font-weight: bold;
+
+    margin-top: 10px;
+}
+
+
+#loginForm input {
+    padding: 14px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 6px;
+
+    font-size: 16px;
+}
+
+
+#loginForm button {
+    border: none;
+
+    cursor: pointer;
+
+    margin-top: 20px;
+}
+
+
+#loginMessage {
+    margin-top: 20px;
+
+    font-weight: bold;
+}
+
+/* ADMIN TOOLS */
+
+.stats-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+
+.booking-tools {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+
+#searchInput {
+    flex: 1;
+
+    min-width: 250px;
+
+    padding: 14px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 6px;
+
+    font-size: 16px;
+}
+
+
+.delete-btn {
+    background: #d32f2f;
+
+    color: white;
+
+    border: none;
+
+    padding: 8px 12px;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+}
+
+
+.delete-btn:hover {
+    opacity: 0.8;
+}
+
+
+.logout-btn {
+    background: #222;
+
+    color: white;
+
+    border: none;
+
+    padding: 12px 18px;
+
+    border-radius: 6px;
+
+    cursor: pointer;
+}

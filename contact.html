@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Book Your Tour | Explore Kenya</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="logo">
+        Explore Kenya
+    </div>
+
+    <button class="menu-toggle" id="menuToggle">
+        ☰
+    </button>
+
+    <nav id="navMenu">
+        <a href="index.html">Home</a>
+        <a href="destinations.html">Destinations</a>
+        <a href="tours.html">Tours</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+</header>
+
+
+<main>
+
+    <section class="page-hero">
+
+        <div>
+            <h1>Plan Your Adventure</h1>
+
+            <p>
+                Tell us about your trip and we'll
+                help you plan your experience.
+            </p>
+        </div>
+
+    </section>
+
+
+    <section class="booking-section">
+
+        <div class="booking-container">
+
+            <h2>Book a Tour</h2>
+
+            <p>
+                Fill in the form below to send us
+                your booking request.
+            </p>
+
+
+            <form id="bookingForm">
+
+                <label for="name">
+                    Full Name
+                </label>
+
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Your full name"
+                    required
+                >
+
+
+                <label for="email">
+                    Email Address
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="you@example.com"
+                    required
+                >
+
+
+                <label for="phone">
+                    Phone Number
+                </label>
+
+                <input
+                    type="tel"
+                    id="phone"
+                    placeholder="+254..."
+                    required
+                >
+
+
+                <label for="tour">
+                    Choose a Tour
+                </label>
+
+                <select id="tour" required>
+
+                    <option value="">
+                        Select a tour
+                    </option>
+
+                    <option value="Maasai Mara Safari">
+                        3-Day Maasai Mara Safari
+                    </option>
+
+                    <option value="Diani Beach">
+                        4-Day Diani Beach Escape
+                    </option>
+
+                    <option value="Mount Kenya">
+                        5-Day Mount Kenya Adventure
+                    </option>
+
+                    <option value="Nairobi Wildlife">
+                        Nairobi Wildlife Experience
+                    </option>
+
+                </select>
+
+
+                <label for="people">
+                    Number of People
+                </label>
+
+                <input
+                    type="number"
+                    id="people"
+                    min="1"
+                    max="20"
+                    value="1"
+                    required
+                >
+
+
+                <label for="date">
+                    Preferred Travel Date
+                </label>
+
+                <input
+                    type="date"
+                    id="date"
+                    required
+                >
+
+
+                <label for="message">
+                    Additional Information
+                </label>
+
+                <textarea
+                    id="message"
+                    rows="5"
+                    placeholder="Tell us anything else about your trip..."
+                ></textarea>
+
+
+                <button
+                    type="submit"
+                    class="btn"
+                >
+                    Send Booking Request
+                </button>
+
+            </form>
+
+
+            <p
+                id="formMessage"
+                class="form-message"
+            ></p>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <p>
+        © 2026 Explore Kenya. All rights reserved.
+    </p>
+
+</footer>
+
+
+<script src="js/script.js"></script>
+
+</body>
+
+</html>
