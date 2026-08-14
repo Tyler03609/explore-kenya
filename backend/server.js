@@ -16,7 +16,7 @@ app.use(express.json());
 
 app.use(
     session({
-       secret: process.env.SESSION_SECRET,
+      secret: process.env.SESSION_SECRET || "explore-kenya-secret",
         resave: false,
         saveUninitialized: false,
 
