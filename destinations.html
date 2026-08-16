@@ -10,38 +10,59 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>Destinations | Explore Kenya</title>
+   <title>
+    Kenya Destinations | Explore Kenya
+</title>
+
+<meta
+    name="description"
+    content="Discover amazing Kenyan destinations including Maasai Mara, Diani Beach, Mount Kenya and Nairobi."
+>
+
+<meta
+    property="og:title"
+    content="Kenya Destinations | Explore Kenya"
+>
+
+<meta
+    property="og:description"
+    content="Discover Maasai Mara, Diani Beach, Mount Kenya, Nairobi and more."
+>
+
+<meta
+    property="og:image"
+    content="https://explore-kenya-8m5a.onrender.com/images/maasai-mara.jpg"
+>
 
     <link rel="stylesheet" href="css/style.css">
+
+<link
+    rel="icon"
+    type="image/png"
+    href="images/favicon.png"
+>
 
 </head>
 
 <body>
 
-<header>
+    <header class="navbar">
 
-    <nav>
+   <a href="index.html" class="logo">
+    <img src="images/logo.png" alt="Explore Kenya logo">
+    <span>Explore Kenya</span>
+</a>
 
-        <h1>Explore Kenya</h1>
+    <button class="menu-toggle" id="menuToggle">
+        ☰
+    </button>
 
-        <div class="nav-links">
-
-            <a href="index.html">Home</a>
-
-            <a href="destinations.html">
-                Destinations
-            </a>
-
-            <a href="tours.html">
-                Tours
-            </a>
-
-            <a href="contact.html">
-                Book Now
-            </a>
-
-        </div>
-
+    <nav id="navMenu">
+        <a href="index.html">Home</a>
+        <a href="destinations.html">Destinations</a>
+        <a href="tours.html">Tours</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
     </nav>
 
 </header>
@@ -58,6 +79,55 @@
 
 </section>
 
+<div class="destination-search">
+
+    <input
+        type="text"
+        id="destinationSearch"
+        placeholder="Search destinations..."
+        aria-label="Search destinations"
+    >
+
+</div>
+
+<div class="destination-filters">
+
+    <button
+        class="filter-button active"
+        data-filter="all"
+    >
+        All
+    </button>
+
+    <button
+        class="filter-button"
+        data-filter="safari"
+    >
+        🦁 Safari
+    </button>
+
+    <button
+        class="filter-button"
+        data-filter="beach"
+    >
+        🏖️ Beach
+    </button>
+
+    <button
+        class="filter-button"
+        data-filter="mountain"
+    >
+        🏔️ Mountain
+    </button>
+
+    <button
+        class="filter-button"
+        data-filter="city"
+    >
+        🏙️ City
+    </button>
+
+</div>
 
 <section class="destinations">
 
@@ -67,11 +137,12 @@
     <div class="destination-grid">
 
 
-        <div class="destination-card">
-
-            <div class="destination-image">
-                🦁
-            </div>
+       <div class="destination-card" data-category="safari">
+            <img
+        src="images/masai-mara (3).jpg"
+        alt="Maasai Mara safari"
+        class="destination-photo"
+    >
 
             <div class="destination-content">
 
@@ -83,6 +154,13 @@
                     Great Migration.
                 </p>
 
+<a
+    href="maasai-mara.html"
+    class="destination-link"
+>
+    View Destination →
+</a>
+
                 <a href="contact.html">
                     Book a Safari
                 </a>
@@ -92,11 +170,13 @@
         </div>
 
 
-        <div class="destination-card">
+       <div class="destination-card" data-category="beach">
 
-            <div class="destination-image">
-                🏖️
-            </div>
+            <img
+    src="images/diani (3).jpg"
+    alt="Diani Beach"
+    class="destination-photo"
+>
 
             <div class="destination-content">
 
@@ -108,6 +188,13 @@
                     Indian Ocean.
                 </p>
 
+<a
+    href="diani-beach.html"
+    class="destination-link"
+>
+    View Destination →
+</a>
+
                 <a href="contact.html">
                     Book a Trip
                 </a>
@@ -117,11 +204,13 @@
         </div>
 
 
-        <div class="destination-card">
+       <div class="destination-card" data-category="mountain">
 
-            <div class="destination-image">
-                🏔️
-            </div>
+           <img
+    src="images/mount-kenya (2).jpg"
+    alt="Mount Kenya"
+    class="destination-photo"
+>
 
             <div class="destination-content">
 
@@ -133,6 +222,13 @@
                     hiking adventures.
                 </p>
 
+<a
+        href="mount-kenya.html"
+        class="destination-link"
+    >
+        View Destination →
+    </a>
+
                 <a href="contact.html">
                     Book an Adventure
                 </a>
@@ -142,11 +238,13 @@
         </div>
 
 
-        <div class="destination-card">
+       <div class="destination-card" data-category="city">
 
-            <div class="destination-image">
-                🦒
-            </div>
+           <img
+    src="images/nairobi (4).jpg"
+    alt="Nairobi"
+    class="destination-photo"
+>
 
             <div class="destination-content">
 
@@ -157,6 +255,13 @@
                     Nairobi National Park and
                     amazing city experiences.
                 </p>
+
+<a
+        href="nairobi.html"
+        class="destination-link"
+    >
+        View Destination →
+    </a>
 
                 <a href="contact.html">
                     Explore Nairobi
@@ -172,14 +277,104 @@
 </section>
 
 
-<footer>
+</footer><footer class="site-footer">
 
-    <p>
-        © 2026 Explore Kenya.
-        All rights reserved.
-    </p>
+    <div class="footer-container">
+
+        <!-- About -->
+
+        <div class="footer-column">
+
+            <h3>Explore Kenya</h3>
+
+            <p>
+                Discover beautiful destinations,
+                unforgettable adventures and the
+                best experiences Kenya has to offer.
+            </p>
+
+        </div>
+
+
+        <!-- Quick Links -->
+
+        <div class="footer-column">
+
+            <h3>Quick Links</h3>
+
+            <a href="index.html">Home</a>
+
+            <a href="destinations.html">
+                Destinations
+            </a>
+
+            <a href="tours.html">
+                Tours
+            </a>
+
+            <a href="about.html">
+                About Us
+            </a>
+
+        </div>
+
+
+        <!-- Booking -->
+
+        <div class="footer-column">
+
+            <h3>Plan Your Trip</h3>
+
+            <a href="contact.html">
+                Book a Trip
+            </a>
+
+            <a href="contact.html">
+                Contact Us
+            </a>
+
+        </div>
+
+
+        <!-- Social -->
+
+        <div class="footer-column">
+
+            <h3>Follow Us</h3>
+
+            <div class="social-links">
+
+                <a href="#" aria-label="Facebook">
+                    Facebook
+                </a>
+
+                <a href="#" aria-label="Instagram">
+                    Instagram
+                </a>
+
+                <a href="#" aria-label="TikTok">
+                    TikTok
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 Explore Kenya.
+            All rights reserved.
+        </p>
+
+    </div>
 
 </footer>
+
+<script src="js/script.js"></script>
 
 </body>
 

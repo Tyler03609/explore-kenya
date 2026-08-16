@@ -304,6 +304,13 @@ app.post("/api/admin/logout", (req, res) => {
 
 });
 
+// 404 handler
+app.use((req, res) => {
+    res.status(404).sendFile(
+        path.join(__dirname, "..", "404.html")
+    );
+});
+
 
 app.listen(PORT, () => {
 
