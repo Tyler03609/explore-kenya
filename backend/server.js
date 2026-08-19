@@ -6,7 +6,7 @@ const bcrypt = require("bcryptjs");
 const express = require("express");
 const path = require("path");
 
-const db = require("./database");
+const pool = require("./db");
 
 const app = express();
 
@@ -150,7 +150,7 @@ app.get("/api/tours", (req, res) => {
 });
 
 
-app.post("/api/bookings", (req, res) => {
+app.post("/api/bookings", async (req, res) => {
 
     const {
         name,
@@ -180,16 +180,17 @@ app.post("/api/bookings", (req, res) => {
     }
 
 
-    const statement = db.prepare(`
-        INSERT INTO bookings
-        (name, email, phone, tour, people, date, message)
+   const result = await pool.query(
+    `
+    INSERT INTO bookings
+    (name, email, phone, tour, people, date, message)
 
-        VALUES
-        (?, ?, ?, ?, ?, ?, ?)
-    `);
+    VALUES
+    ($1, $2, $3, $4, $5, $6, $7)
 
-
-    const result = statement.run(
+    RETURNING id
+    `,
+    [
         name,
         email,
         phone,
@@ -197,10 +198,11 @@ app.post("/api/bookings", (req, res) => {
         Number(people),
         date,
         message || ""
-    );
+    ]
+);
 
 
-    console.log("New booking saved:", result.lastInsertRowid);
+    console.log("New booking saved:", result.rows[0].id);
 
 
     res.json({
@@ -209,14 +211,13 @@ app.post("/api/bookings", (req, res) => {
 
         message: "Booking saved successfully!",
 
-        bookingId: result.lastInsertRowid
+        bookingId: result.rows[0].id
 
     });
 
 });
 
-app.get("/api/bookings", (req, res) => {
-
+app.get("/api/bookings", async (req, res) => {
     if (!req.session.isAdmin) {
 
         return res.status(401).json({
@@ -227,19 +228,19 @@ app.get("/api/bookings", (req, res) => {
     }
 
 
-    const bookings = db.prepare(`
-        SELECT *
-        FROM bookings
-        ORDER BY created_at DESC
-    `).all();
+    const result = await pool.query(`
+    SELECT *
+    FROM bookings
+    ORDER BY id DESC
+`);
 
+const bookings = result.rows;
 
-    res.json(bookings);
+res.json(bookings);
 
 });
 
-app.delete("/api/bookings/:id", (req, res) => {
-
+app.delete("/api/bookings/:id", async (req, res) => {
     if (!req.session.isAdmin) {
 
         return res.status(401).json({
@@ -254,11 +255,13 @@ app.delete("/api/bookings/:id", (req, res) => {
         Number(req.params.id);
 
 
-    const result =
-        db.prepare(`
-            DELETE FROM bookings
-            WHERE id = ?
-        `).run(id);
+    const result = await pool.query(
+    `
+    DELETE FROM bookings
+    WHERE id = $1
+    `,
+    [Number(req.params.id)]
+);
 
 
     if (result.changes === 0) {
